@@ -1,0 +1,91 @@
+destination: pkgdown
+url: https://ijapesigan.github.io/mxHelper/
+
+template:
+  package: rProject
+
+reference:
+- title: Full Matrix
+  contents:
+  - MxHelperFullBound
+  - MxHelperFullFixed
+  - MxHelperFullFree
+  - MxHelperFullLabels
+  - MxHelperFullMxMatrix
+  - MxHelperFullPrepMatrices
+  - MxHelperFullValues
+- title: Diagonal Matrix
+  contents:
+  - MxHelperDiagBound
+  - MxHelperDiagFree
+  - MxHelperDiagLabels
+  - MxHelperDiagMxMatrix
+  - MxHelperDiagPrepMatrices
+  - MxHelperDiagValues
+- title: Symmetric Matrix
+  contents:
+  - MxHelperSymBound
+  - MxHelperSymFree
+  - MxHelperSymLabels
+  - MxHelperSymMxMatrix
+  - MxHelperSymPrepMatrices
+  - MxHelperSymValues
+- title: Strictly Lower Triangular Matrix
+  contents:
+  - MxHelperSdiagBound
+  - MxHelperSdiagFree
+  - MxHelperSdiagLabels
+  - MxHelperSdiagMxMatrix
+  - MxHelperSdiagPrepMatrices
+  - MxHelperSdiagValues
+- title: Covariance Matrix
+  contents:
+  - MxHelperInvLDL
+  - MxHelperInvSoftplus
+  - MxHelperLDL
+  - MxHelperSigmaDiagFromLDLMxMatrix
+  - MxHelperSigmaDiagFromLDLSoftplusAlgebra
+  - MxHelperSigmaFixed
+  - MxHelperSigmaFromLDLFixed
+  - MxHelperSigmaFromLDLLogAlgebra
+  - MxHelperSigmaFromLDLMxMatrix
+  - MxHelperSigmaFromLDLSoftplusAlgebra
+  - MxHelperSoftplus
+- title: Starting Values
+  contents:
+  - MxHelperCTVARBetaValues
+  - MxHelperDTVARAlphaValues
+  - MxHelperDTVARBetaValues
+  - MxHelperSigmaValues
+- title: Model Fitting
+  contents:
+  - MxHelperEnsureGoodHessian
+  - MxHelperForceHessianOptions
+  - MxHelperMuSigma
+  - MxHelperQuiet
+  - MxHelperReadRunSave
+  - MxHelperReadRunSaveNoHessian
+  - MxHelperRobustSE
+  - MxHelperRun
+  - MxHelperRunNoHessian
+  - MxHelperStripHessian
+- title: Fit Diagnostics
+  contents:
+  - MxHelperHasPdHessian
+  - MxHelperIsGoodFit
+  - MxHelperNeedsRescue
+  - MxHelperStatusCode
+- title: Bounds
+  contents:
+  - MxHelperAtBounds
+  - MxHelperNudgeOffBounds
+  - MxHelperRelaxBounds
+  - MxHelperRelaxBoundsAtBounds
+
+articles:
+- title: Getting Started
+  contents:
+  - mxHelper
+- title: Session Information
+  contents:
+  - session

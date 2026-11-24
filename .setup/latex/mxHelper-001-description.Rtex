@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\input{.setup/latex/preamble/preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLATEX APA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%% begin.rcode
+% #| label = "root",
+% #| include = FALSE
+% root <- rprojroot::is_rstudio_project
+%% end.rcode
+
+%% begin.rcode
+% #| label = "knitr",
+% #| include = FALSE,
+% #| file = root$find_file(
+% #|   ".setup",
+% #|   "latex",
+% #|   "r-scripts",
+% #|   "knitr.R"
+% #| )
+%% end.rcode
+
+%% begin.rcode
+% #| label = "biblatex",
+% #| echo = FALSE,
+% #| message = FALSE,
+% #| warning = FALSE,
+% #| results = "asis"
+% if (require(package = "rProject")) {
+%   Bib(
+%     path = dirname(
+%       path = root$find_file(
+%         "project.Rproj"
+%       )
+%     )
+%   )
+%   cat(
+%     .PreambleBiblatex(
+%       path = root$find_file(
+%         ".setup",
+%         "latex",
+%         "bib"
+%       )
+%     )
+%   )
+% } else {
+%   cat(
+%     .PreambleCombined(
+%       path = root$find_file(
+%         ".setup",
+%         "latex",
+%         "bib"
+%       ),
+%       output_path = root$find_file(
+%         ".setup",
+%         "latex"
+%       )
+%     )
+%   )
+% }
+%% end.rcode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{mxHelper: Helper Functions for \texttt{OpenMx}}
+\author{Ivan Jacob Agaloos Pesigan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Description}
+
+Helper functions for \texttt{OpenMx} models \parencite{Neale-Hunter-Pritikin-etal-2016}:
+matrices with labels, bounds, and vectors of free parameters;
+covariance matrices from the LDL decomposition with a softplus diagonal;
+starting values for vector autoregressive models;
+and fitting until the Hessian is positive definite,
+with diagnostics and bound handling.
+Each exported function has an internal version without input checks
+that other projects can copy.
+
+\section*{Installation}
+
+You can install the development version of \texttt{mxHelper} from
+\href{https://github.com/ijapesigan/mxHelper}{GitHub} with:
+
+%% begin.rcode
+% #| eval = FALSE
+% if (!requireNamespace(package = "pak", quietly = TRUE)) {
+%   utils::install.packages(pkgs = "pak")
+% }
+% pak::pkg_install(pkg = "ijapesigan/mxHelper")
+%% end.rcode
+
+\section*{More Information}
+
+See
+\href{https://ijapesigan.github.io/mxHelper/index.html}{GitHub Pages}
+for package documentation.
+
+\nocite{RCoreTeam-2026}
+
+\printbibliography
+
+\end{document}

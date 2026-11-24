@@ -1,0 +1,15 @@
+# Written by rProject::Lock() at make auto. Do not edit.
+# make project restores it (locally and in GitHub Actions);
+# make upgrade moves it forward at the next make auto.
+rproject_sha <- "a5f0a3046062604f22a94e67a0dd9b84521e0c35"
+rproject_version <- "0.0.79"
+# the image: CI runs `image` (a digest), or `image_name`:latest
+# when it has no digest; packages the image lacks come from the
+# Posit Package Manager snapshot of `snapshot`
+image <- "docker.io/ijapesigan/docs@sha256:b25867c2b2ff637dbe5b562dd36eda0184718fd5ba58fd359d2bcec34b98cae8"
+image_name <- "docker.io/ijapesigan/docs"
+snapshot <- "2026-11-22"
+r_version <- "4.6.2"
+# packages the project adds (project.R): version or commit
+extra_cran <- c("OpenMx" = "2.22.11")
+extra_github <- c()

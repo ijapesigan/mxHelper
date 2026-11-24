@@ -1,0 +1,35 @@
+Package: mxHelper
+Title: Helper Functions for 'OpenMx'
+Version: 0.0.3
+Authors@R: 
+    person(given = "Ivan Jacob Agaloos",
+           family = "Pesigan",
+           role = c("aut", "cre", "cph"),
+           email = "r.jeksterslab@gmail.com",
+           comment = c(ORCID = "0000-0003-4818-8420"))
+Description: Helper functions for 'OpenMx' models: matrices with labels,
+    bounds, and vectors of free parameters; covariance matrices from the LDL
+    decomposition with a softplus diagonal; starting values for vector
+    autoregressive models; and fitting until the Hessian is positive
+    definite, with diagnostics and bound handling.
+    Each exported function has an internal version without input checks
+    that other projects can copy.
+URL: https://github.com/ijapesigan/mxHelper, https://ijapesigan.github.io/mxHelper/
+BugReports: https://github.com/ijapesigan/mxHelper/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends:
+    R (>= 3.0.0)
+Imports:
+    Matrix,
+    OpenMx,
+    simStateSpace,
+    stats,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.1.9000

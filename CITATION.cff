@@ -1,0 +1,40 @@
+# ------------------------------------------------
+# CITATION.cff file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# ------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "mxHelper" in publications use:'
+type: software
+license: MIT
+title: 'mxHelper: Helper Functions for ''OpenMx'''
+version: 0.0.3
+abstract: 'Helper functions for ''OpenMx'' models: matrices with labels, bounds, and
+  vectors of free parameters; covariance matrices from the LDL decomposition with
+  a softplus diagonal; starting values for vector autoregressive models; and fitting
+  until the Hessian is positive definite, with diagnostics and bound handling. Each
+  exported function has an internal version without input checks that other projects
+  can copy.'
+authors:
+- family-names: Pesigan
+  given-names: Ivan Jacob Agaloos
+  email: r.jeksterslab@gmail.com
+  orcid: https://orcid.org/0000-0003-4818-8420
+preferred-citation:
+  type: manual
+  title: 'mxHelper: Helper Functions for ''OpenMx'''
+  authors:
+  - family-names: Pesigan
+    given-names: Ivan Jacob Agaloos
+    email: r.jeksterslab@gmail.com
+    orcid: https://orcid.org/0000-0003-4818-8420
+  year: '2026'
+  notes: R package version 0.0.3
+repository-code: https://github.com/ijapesigan/mxHelper
+url: https://ijapesigan.github.io/mxHelper/
+contact:
+- family-names: Pesigan
+  given-names: Ivan Jacob Agaloos
+  email: r.jeksterslab@gmail.com
+  orcid: https://orcid.org/0000-0003-4818-8420
+
