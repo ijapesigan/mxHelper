@@ -1,0 +1,70 @@
+---
+title: "mxHelper: Helper Functions for 'OpenMx'"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r format(Sys.time(), '%Y-%m-%d %H:%M:%S')`"
+output: rmarkdown::html_vignette
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @RCoreTeam-2026
+  @Neale-Hunter-Pritikin-etal-2016
+vignette: >
+  %\VignetteIndexEntry{mxHelper: Helper Functions for 'OpenMx'}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Description
+
+Helper functions for `OpenMx` models
+in R [@RCoreTeam-2026; @Neale-Hunter-Pritikin-etal-2016]:
+matrices with labels, bounds, and vectors of free parameters;
+covariance matrices from the LDL decomposition with a softplus diagonal;
+starting values for vector autoregressive models;
+and fitting until the Hessian is positive definite,
+with diagnostics and bound handling.
+Each exported function has an internal version without input checks
+that other projects can copy.
+
+## Installation
+
+You can install the development version of `mxHelper` from
+[GitHub](https://github.com/ijapesigan/mxHelper) with:
+
+```r
+if (!require("pak")) install.packages("pak")
+pak::pkg_install("ijapesigan/mxHelper")
+```
+
+## Example
+
+```{r}
+library(package = "mxHelper")
+set.seed(seed = 42)
+x <- data.frame(
+  y1 = stats::rnorm(n = 100),
+  y2 = stats::rnorm(n = 100)
+)
+fit <- MxHelperQuiet(
+  expr = MxHelperMuSigma(x = x, extraTries = 2)
+)
+MxHelperIsGoodFit(x = fit)
+MxHelperHasPdHessian(x = fit)
+OpenMx::mxEval(expression = sigma, model = fit)
+```
+
+## Documentation
+
+See
+[GitHub Pages](https://ijapesigan.github.io/mxHelper)
+for package documentation.
+
+## References
