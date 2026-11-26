@@ -22,6 +22,20 @@ lapply(
       }
     )
     testthat::test_that(
+      desc = paste(text, "passes nd_tol on to the good-fit test"),
+      code = {
+        testthat::expect_false(
+          object = .MxHelperNeedsRescue(model = .TestFitSmall())
+        )
+        testthat::expect_true(
+          object = .MxHelperNeedsRescue(
+            model = .TestFitSmall(),
+            nd_tol = NULL
+          )
+        )
+      }
+    )
+    testthat::test_that(
       desc = paste(text, "the exported version equals the internal version"),
       code = {
         testthat::expect_identical(

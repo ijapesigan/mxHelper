@@ -32,9 +32,9 @@
   x
 }
 
-# The saturated model of .MxHelperMuSigma(), not fitted.
-.TestModel <- function() {
-  x <- .TestData()
+# The saturated model of .MxHelperMuSigma(), not fitted
+# (data `x`, by default .TestData()).
+.TestModel <- function(x = .TestData()) {
   manifests <- names(x = x)
   lbound <- matrix(data = NA_real_, nrow = 2, ncol = 2)
   diag(x = lbound) <- 1e-6
@@ -87,5 +87,38 @@
     model = fit,
     labels = "test.l[2,1]",
     lbound = est[["test.l[2,1]"]]
+  )
+}
+
+# Data with a near-zero variance: y2 scaled by 0.01 (variance about 1e-4).
+.TestDataSmall <- function() {
+  x <- .TestData()
+  x$y2 <- 0.01 * x$y2
+  x
+}
+
+# The fit to .TestDataSmall(), once per test run: it converges, but its
+# largest absolute gradient is above 1e-2 and its Newton decrement is far
+# below 1e-4 (the case of fitVARMxID's small-variance cells).
+.TestFitSmall <- function() {
+  if (is.null(x = .mxhelper_test$fit_small)) {
+    .mxhelper_test$fit_small <- OpenMx::mxRun(
+      model = .TestModel(x = .TestDataSmall()),
+      silent = TRUE
+    )
+  }
+  .mxhelper_test$fit_small
+}
+
+# A fit stopped after one major iteration (status code 6).
+.TestFitEarly <- function() {
+  OpenMx::mxRun(
+    model = OpenMx::mxOption(
+      model = .TestModel(),
+      key = "Major iterations",
+      value = 1
+    ),
+    silent = TRUE,
+    suppressWarnings = TRUE
   )
 }

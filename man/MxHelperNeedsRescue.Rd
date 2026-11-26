@@ -7,6 +7,7 @@
 MxHelperNeedsRescue(
   model,
   grad_tol = 0.01,
+  nd_tol = 1e-04,
   ok_codes = 0L,
   require_finite_fit = TRUE,
   hess_tol_abs = 1e-08,
@@ -23,6 +24,12 @@ MxHelperNeedsRescue(
 
 \item{grad_tol}{Positive number.
 Largest absolute gradient of a good fit.}
+
+\item{nd_tol}{Non-negative number or \code{NULL}.
+Largest Newton decrement of a good fit: a fit that fails
+\code{grad_tol} is still good when \verb{g' H^\{-1\} g < nd_tol}, with \code{g}
+the gradient and \code{H} the Hessian (positive definite) of the fit.
+\code{NULL} or \code{0} switches this test off.}
 
 \item{ok_codes}{Integer vector.
 OpenMx status codes accepted as converged.}

@@ -22,6 +22,11 @@
 #'   Largest number of rescue attempts.
 #' @param grad_tol Positive number.
 #'   Largest absolute gradient of a good fit.
+#' @param nd_tol Non-negative number or `NULL`.
+#'   Largest Newton decrement of a good fit: a fit that fails
+#'   `grad_tol` is still good when `g' H^{-1} g < nd_tol`, with `g`
+#'   the gradient and `H` the Hessian (positive definite) of the fit.
+#'   `NULL` or `0` switches this test off.
 #' @param hess_tol_abs Positive number.
 #'   Absolute tolerance on the smallest eigenvalue
 #'   of the Hessian.
@@ -105,6 +110,7 @@ MxHelperReadRunSave <- function(input,
                                 tries_local = 100,
                                 max_attempts = 10,
                                 grad_tol = 1e-2,
+                                nd_tol = 1e-4,
                                 hess_tol_abs = 1e-8,
                                 hess_tol_rel = 1e-10,
                                 check_condition = FALSE,
@@ -142,6 +148,10 @@ MxHelperReadRunSave <- function(input,
   .CheckPositive(
     x = grad_tol,
     arg = "grad_tol"
+  )
+  .CheckNonNegativeOrNull(
+    x = nd_tol,
+    arg = "nd_tol"
   )
   .CheckPositive(
     x = hess_tol_abs,
@@ -225,6 +235,7 @@ MxHelperReadRunSave <- function(input,
     tries_local = tries_local,
     max_attempts = max_attempts,
     grad_tol = grad_tol,
+    nd_tol = nd_tol,
     hess_tol_abs = hess_tol_abs,
     hess_tol_rel = hess_tol_rel,
     check_condition = check_condition,

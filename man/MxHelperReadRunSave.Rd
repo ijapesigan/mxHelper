@@ -10,6 +10,7 @@ MxHelperReadRunSave(
   tries_local = 100,
   max_attempts = 10,
   grad_tol = 0.01,
+  nd_tol = 1e-04,
   hess_tol_abs = 1e-08,
   hess_tol_rel = 1e-10,
   check_condition = FALSE,
@@ -48,6 +49,12 @@ Largest number of rescue attempts.}
 
 \item{grad_tol}{Positive number.
 Largest absolute gradient of a good fit.}
+
+\item{nd_tol}{Non-negative number or \code{NULL}.
+Largest Newton decrement of a good fit: a fit that fails
+\code{grad_tol} is still good when \verb{g' H^\{-1\} g < nd_tol}, with \code{g}
+the gradient and \code{H} the Hessian (positive definite) of the fit.
+\code{NULL} or \code{0} switches this test off.}
 
 \item{hess_tol_abs}{Positive number.
 Absolute tolerance on the smallest eigenvalue
