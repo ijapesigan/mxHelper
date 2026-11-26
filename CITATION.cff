@@ -8,7 +8,7 @@ message: 'To cite package "mxHelper" in publications use:'
 type: software
 license: MIT
 title: 'mxHelper: Helper Functions for ''OpenMx'''
-version: 0.0.3
+version: 0.0.4
 abstract: 'Helper functions for ''OpenMx'' models: matrices with labels, bounds, and
   vectors of free parameters; covariance matrices from the LDL decomposition with
   a softplus diagonal; starting values for vector autoregressive models; and fitting
@@ -29,7 +29,7 @@ preferred-citation:
     email: r.jeksterslab@gmail.com
     orcid: https://orcid.org/0000-0003-4818-8420
   year: '2026'
-  notes: R package version 0.0.3
+  notes: R package version 0.0.4
 repository-code: https://github.com/ijapesigan/mxHelper
 url: https://ijapesigan.github.io/mxHelper/
 contact:

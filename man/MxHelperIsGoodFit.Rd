@@ -4,7 +4,13 @@
 \alias{MxHelperIsGoodFit}
 \title{Is the Fit Good?}
 \usage{
-MxHelperIsGoodFit(x, grad_tol = 0.01, ok_codes = 0L, require_finite_fit = TRUE)
+MxHelperIsGoodFit(
+  x,
+  grad_tol = 0.01,
+  ok_codes = 0L,
+  require_finite_fit = TRUE,
+  nd_tol = 1e-04
+)
 }
 \arguments{
 \item{x}{An OpenMx model (\code{MxModel}), usually fitted.}
@@ -17,14 +23,27 @@ OpenMx status codes accepted as converged.}
 
 \item{require_finite_fit}{Logical.
 If \code{TRUE}, a good fit needs a finite fit value.}
+
+\item{nd_tol}{Non-negative number or \code{NULL}.
+Largest Newton decrement of a good fit, tested only when the
+gradient test fails and the fit has a positive definite Hessian.
+\code{NULL} or \code{0} switches this test off.}
 }
 \value{
 Returns \code{TRUE} or \code{FALSE}.
+\code{TRUE} has the attribute \code{criterion}: \code{"gradient"} when the fit
+passes the gradient test, \code{"newton"} when it passes only the
+Newton decrement test.
 }
 \description{
 Tests whether a fitted model has a status code in \code{ok_codes},
 a finite fit value (with \code{require_finite_fit = TRUE}), and a
 largest absolute gradient below \code{grad_tol}.
+A fit that fails the gradient test is still good when its
+Newton decrement \verb{g' H^\{-1\} g} is below \code{nd_tol}
+(\code{g} the gradient, \code{H} the Hessian of the fit, positive definite):
+half of it is what a Newton step would still gain in the fit value,
+so the test does not depend on the scale of the parameters.
 Missing output counts as a bad fit.
 The arguments are checked first; the internal version,
 without checks, is the one other projects copy.

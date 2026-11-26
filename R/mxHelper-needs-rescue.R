@@ -14,6 +14,11 @@
 #' @param model An OpenMx model (`MxModel`).
 #' @param grad_tol Positive number.
 #'   Largest absolute gradient of a good fit.
+#' @param nd_tol Non-negative number or `NULL`.
+#'   Largest Newton decrement of a good fit: a fit that fails
+#'   `grad_tol` is still good when `g' H^{-1} g < nd_tol`, with `g`
+#'   the gradient and `H` the Hessian (positive definite) of the fit.
+#'   `NULL` or `0` switches this test off.
 #' @param ok_codes Integer vector.
 #'   OpenMx status codes accepted as converged.
 #' @param require_finite_fit Logical.
@@ -65,6 +70,7 @@
 #' @export
 MxHelperNeedsRescue <- function(model,
                                 grad_tol = 1e-2,
+                                nd_tol = 1e-4,
                                 ok_codes = 0L,
                                 require_finite_fit = TRUE,
                                 hess_tol_abs = 1e-8,
@@ -81,6 +87,10 @@ MxHelperNeedsRescue <- function(model,
   .CheckPositive(
     x = grad_tol,
     arg = "grad_tol"
+  )
+  .CheckNonNegativeOrNull(
+    x = nd_tol,
+    arg = "nd_tol"
   )
   .CheckCodes(
     x = ok_codes,
@@ -117,6 +127,7 @@ MxHelperNeedsRescue <- function(model,
   .MxHelperNeedsRescue(
     model = model,
     grad_tol = grad_tol,
+    nd_tol = nd_tol,
     ok_codes = ok_codes,
     require_finite_fit = require_finite_fit,
     hess_tol_abs = hess_tol_abs,
