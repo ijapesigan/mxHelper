@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mxHelper</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,6 +34,18 @@
       <small>Source: <a href="https://github.com/ijapesigan/mxHelper/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.4" id="mxhelper-004">mxHelper 0.0.4<a class="anchor" aria-label="anchor" href="#mxhelper-004"></a></h2>
+<div class="section level3">
+<h3 id="new-features-0-0-4">New features<a class="anchor" aria-label="anchor" href="#new-features-0-0-4"></a></h3>
+<ul><li>
+<code><a href="../reference/MxHelperIsGoodFit.html">MxHelperIsGoodFit()</a></code> and <code>.MxHelperIsGoodFit()</code> gain <code>nd_tol</code> (default <code>1e-4</code>): a fit that fails the gradient test (<code>grad_tol</code>) is still good when its Newton decrement <code>g' H^{-1} g</code> is below <code>nd_tol</code> and its Hessian is positive definite. The test does not depend on the scale of the parameters, so a converged fit with a near-zero variance (a gradient of about 0.05 on its coefficients) is no longer sent to a rescue. <code>nd_tol = NULL</code> or <code>0</code> gives the old behaviour.</li>
+<li>
+<code>TRUE</code> from <code><a href="../reference/MxHelperIsGoodFit.html">MxHelperIsGoodFit()</a></code> has the attribute <code>criterion</code>: <code>"gradient"</code> or <code>"newton"</code>. <code><a href="https://rdrr.io/r/base/Logic.html" class="external-link">isTRUE()</a></code> and <code>if ()</code> ignore it.</li>
+<li>
+<code>nd_tol</code> is passed on by <code><a href="../reference/MxHelperNeedsRescue.html">MxHelperNeedsRescue()</a></code>, <code><a href="../reference/MxHelperRun.html">MxHelperRun()</a></code>, <code><a href="../reference/MxHelperEnsureGoodHessian.html">MxHelperEnsureGoodHessian()</a></code>, <code><a href="../reference/MxHelperReadRunSave.html">MxHelperReadRunSave()</a></code>, and their internal versions.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.3" id="mxhelper-003">mxHelper 0.0.3<a class="anchor" aria-label="anchor" href="#mxhelper-003"></a></h2>
 <div class="section level3">

@@ -32,7 +32,9 @@ You can install the development version of `mxHelper` from
 `  expr ``=`` `[`MxHelperMuSigma`](https://ijapesigan.github.io/mxHelper/reference/MxHelperMuSigma.md)`(``x ``=`` ``x``, extraTries ``=`` ``2``)`\
 `)`\
 [`MxHelperIsGoodFit`](https://ijapesigan.github.io/mxHelper/reference/MxHelperIsGoodFit.md)`(``x ``=`` ``fit``)`\
-`#> [1] FALSE`\
+`#> [1] TRUE`\
+`#> attr(,"criterion")`\
+`#> [1] "newton"`\
 [`MxHelperHasPdHessian`](https://ijapesigan.github.io/mxHelper/reference/MxHelperHasPdHessian.md)`(``x ``=`` ``fit``)`\
 `#> [1] TRUE`\
 `OpenMx``::`[`mxEval`](https://rdrr.io/pkg/OpenMx/man/mxEval.html)`(``expression ``=`` ``sigma``, model ``=`` ``fit``)`\

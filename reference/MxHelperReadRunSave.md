@@ -18,6 +18,7 @@ MxHelperReadRunSave(
   tries_local = 100,
   max_attempts = 10,
   grad_tol = 0.01,
+  nd_tol = 1e-04,
   hess_tol_abs = 1e-08,
   hess_tol_rel = 1e-10,
   check_condition = FALSE,
@@ -64,6 +65,13 @@ MxHelperReadRunSave(
 - grad_tol:
 
   Positive number. Largest absolute gradient of a good fit.
+
+- nd_tol:
+
+  Non-negative number or `NULL`. Largest Newton decrement of a good fit:
+  a fit that fails `grad_tol` is still good when `g' H^{-1} g < nd_tol`,
+  with `g` the gradient and `H` the Hessian (positive definite) of the
+  fit. `NULL` or `0` switches this test off.
 
 - hess_tol_abs:
 

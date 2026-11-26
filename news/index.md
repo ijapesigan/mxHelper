@@ -1,5 +1,28 @@
 # Changelog
 
+## mxHelper 0.0.4
+
+### New features
+
+- [`MxHelperIsGoodFit()`](https://ijapesigan.github.io/mxHelper/reference/MxHelperIsGoodFit.md)
+  and `.MxHelperIsGoodFit()` gain `nd_tol` (default `1e-4`): a fit that
+  fails the gradient test (`grad_tol`) is still good when its Newton
+  decrement `g' H^{-1} g` is below `nd_tol` and its Hessian is positive
+  definite. The test does not depend on the scale of the parameters, so
+  a converged fit with a near-zero variance (a gradient of about 0.05 on
+  its coefficients) is no longer sent to a rescue. `nd_tol = NULL` or
+  `0` gives the old behaviour.
+- `TRUE` from
+  [`MxHelperIsGoodFit()`](https://ijapesigan.github.io/mxHelper/reference/MxHelperIsGoodFit.md)
+  has the attribute `criterion`: `"gradient"` or `"newton"`.
+  [`isTRUE()`](https://rdrr.io/r/base/Logic.html) and `if ()` ignore it.
+- `nd_tol` is passed on by
+  [`MxHelperNeedsRescue()`](https://ijapesigan.github.io/mxHelper/reference/MxHelperNeedsRescue.md),
+  [`MxHelperRun()`](https://ijapesigan.github.io/mxHelper/reference/MxHelperRun.md),
+  [`MxHelperEnsureGoodHessian()`](https://ijapesigan.github.io/mxHelper/reference/MxHelperEnsureGoodHessian.md),
+  [`MxHelperReadRunSave()`](https://ijapesigan.github.io/mxHelper/reference/MxHelperReadRunSave.md),
+  and their internal versions.
+
 ## mxHelper 0.0.3
 
 ### Patch

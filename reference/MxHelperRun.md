@@ -16,6 +16,7 @@ copy.
 MxHelperRun(
   model,
   grad_tol = 0.01,
+  nd_tol = 1e-04,
   ok_codes = 0L,
   require_finite_fit = TRUE,
   hess_tol_abs = 1e-08,
@@ -36,6 +37,13 @@ MxHelperRun(
 - grad_tol:
 
   Positive number. Largest absolute gradient of a good fit.
+
+- nd_tol:
+
+  Non-negative number or `NULL`. Largest Newton decrement of a good fit:
+  a fit that fails `grad_tol` is still good when `g' H^{-1} g < nd_tol`,
+  with `g` the gradient and `H` the Hessian (positive definite) of the
+  fit. `NULL` or `0` switches this test off.
 
 - ok_codes:
 

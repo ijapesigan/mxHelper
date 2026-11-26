@@ -39,7 +39,7 @@ without checks, is the one other projects copy."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mxHelper</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,6 +95,7 @@ without checks, is the one other projects copy.</p>
 <span>  tries_local <span class="op">=</span> <span class="fl">100</span>,</span>
 <span>  max_attempts <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  grad_tol <span class="op">=</span> <span class="fl">0.01</span>,</span>
+<span>  nd_tol <span class="op">=</span> <span class="fl">1e-04</span>,</span>
 <span>  hess_tol_abs <span class="op">=</span> <span class="fl">1e-08</span>,</span>
 <span>  hess_tol_rel <span class="op">=</span> <span class="fl">1e-10</span>,</span>
 <span>  check_condition <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -142,6 +143,14 @@ Largest number of rescue attempts.</p></dd>
 <dt id="arg-grad-tol">grad_tol<a class="anchor" aria-label="anchor" href="#arg-grad-tol"></a></dt>
 <dd><p>Positive number.
 Largest absolute gradient of a good fit.</p></dd>
+
+
+<dt id="arg-nd-tol">nd_tol<a class="anchor" aria-label="anchor" href="#arg-nd-tol"></a></dt>
+<dd><p>Non-negative number or <code>NULL</code>.
+Largest Newton decrement of a good fit: a fit that fails
+<code>grad_tol</code> is still good when <code>g' H^{-1} g &lt; nd_tol</code>, with <code>g</code>
+the gradient and <code>H</code> the Hessian (positive definite) of the fit.
+<code>NULL</code> or <code>0</code> switches this test off.</p></dd>
 
 
 <dt id="arg-hess-tol-abs">hess_tol_abs<a class="anchor" aria-label="anchor" href="#arg-hess-tol-abs"></a></dt>
