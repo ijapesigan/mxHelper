@@ -3,7 +3,7 @@
 Builds the starting values of the `p` by `p` transition matrix of a
 discrete-time vector autoregressive model, projected so that every
 eigenvalue is inside the unit circle
-([`simStateSpace::ProjectToStability()`](https://github.com/jeksterslab/simStateSpace/reference/ProjectToStability.html)).
+([`simStateSpace::ProjectToStability()`](https://jeksterslab.github.io/simStateSpace//reference/ProjectToStability.html)).
 The arguments are checked first; the internal version, without checks,
 is the one other projects copy.
 

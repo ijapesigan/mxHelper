@@ -3,7 +3,7 @@
 Builds the starting values of the `p` by `p` drift matrix of a
 continuous-time vector autoregressive model, projected so that every
 eigenvalue has a negative real part
-([`simStateSpace::ProjectToHurwitz()`](https://github.com/jeksterslab/simStateSpace/reference/ProjectToHurwitz.html)).
+([`simStateSpace::ProjectToHurwitz()`](https://jeksterslab.github.io/simStateSpace//reference/ProjectToHurwitz.html)).
 The arguments are checked first; the internal version, without checks,
 is the one other projects copy.
 
